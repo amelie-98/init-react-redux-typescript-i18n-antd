@@ -1,6 +1,11 @@
 import { combineReducers } from 'redux';
 import { connectRouter } from 'connected-react-router';
 
-const createRootReducer = (history: any) => combineReducers({ router: connectRouter(history) });
+import SonyReducer from './Sony';
 
-export default createRootReducer;
+export interface StateTypes {
+  router: any;
+  sony: string;
+}
+
+export default (history: any) => combineReducers({ router: connectRouter(history), sony: SonyReducer });

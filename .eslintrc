@@ -48,6 +48,7 @@
         "tsx": "never",
         "mjs": "never"
       }
-    ]
+    ],
+    "max-len": ["error", { "code": 120 }]
   }
 }
