@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 
 import ReactDOM from 'react-dom';
 import { ConnectedRouter } from 'connected-react-router';
@@ -8,12 +8,17 @@ import App from './App';
 import configureStore, { history } from './store';
 import './index.css';
 
+// import i18n (needs to be bundled ;))
+import './i18n/config';
+
 const store = configureStore();
 
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <App />
+      <Suspense fallback={null}>
+        <App />
+      </Suspense>
     </ConnectedRouter>
   </Provider>,
   document.getElementById('root'),
