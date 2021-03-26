@@ -16,6 +16,15 @@ export default () => {
 
   const testUseDispatchPS5 = useCallback(() => dispatch(changeSonyToPS5('PS5')), [dispatch]);
 
+  const {
+    NODE_ENV,
+    REACT_APP_TEST,
+    REACT_APP_TITLE,
+    REACT_APP_DESCRIPTION,
+    REACT_APP_DEV_MODE,
+    REACT_APP_PRO_MODE,
+  } = process.env;
+
   return (
     <div className="App">
       <Test text="test" />
@@ -28,6 +37,12 @@ export default () => {
       <button onClick={() => testUseDispatchPS5()} type="button">
         Test useDispatch PS5
       </button>
+
+      <h1>{REACT_APP_TEST}</h1>
+      <h1>{REACT_APP_TITLE}</h1>
+      <h3>{REACT_APP_DESCRIPTION}</h3>
+
+      {NODE_ENV === 'development' ? REACT_APP_DEV_MODE : REACT_APP_PRO_MODE}
     </div>
   );
 };
