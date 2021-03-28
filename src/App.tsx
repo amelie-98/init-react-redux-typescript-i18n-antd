@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { useSelector, shallowEqual, useDispatch } from 'react-redux';
 import { Dispatch } from 'redux';
 import { Link, useHistory } from 'react-router-dom';
@@ -8,6 +8,7 @@ import './App.css';
 import { StateTypes } from './reducers';
 import { changeSonyToPSVITA, changeSonyToPS5 } from './actions';
 import ROUTES, { RenderRoutes } from './components/Routes';
+import service from './services/helper';
 
 export default () => {
   const { sony } = useSelector((state: StateTypes) => state, shallowEqual);
@@ -28,6 +29,30 @@ export default () => {
   } = process.env;
 
   const history = useHistory();
+
+  useEffect(() => {
+    console.log('START useEffect');
+
+    const fetchData = async () => {
+      // test call success
+      const response1 = await service('post', 'https://6060980b04b05d0017ba2bd3.mockapi.io/test', { name: 'test123' });
+
+      // test call fail
+      const response2 = await service('get', 'https://6060980b04b05d0017ba2bd3.mockapi.io/test/fail', null);
+
+      console.log(response1);
+
+      if (response2) {
+        console.log('không có lỗi xảy ra');
+      } else {
+        console.log('đã xảy ra lỗi và lỗi là :', response2);
+      }
+    };
+
+    fetchData();
+
+    console.log('END useEffect');
+  }, []);
 
   return (
     <div className="App">

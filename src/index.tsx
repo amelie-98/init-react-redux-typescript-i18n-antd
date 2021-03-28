@@ -6,7 +6,9 @@ import { Provider } from 'react-redux';
 
 import App from './App';
 import configureStore, { history } from './store';
+
 import './index.css';
+import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 
 // import i18n (needs to be bundled ;))
 import './i18n/config';
