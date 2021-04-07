@@ -5,7 +5,7 @@ import SonyReducer from './Sony';
 
 export interface StateTypes {
   router: any;
-  sony: string;
+  sony: any;
 }
 
 export default (history: any) => combineReducers({ router: connectRouter(history), sony: SonyReducer });

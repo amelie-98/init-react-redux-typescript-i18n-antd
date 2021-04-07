@@ -1,11 +1,7 @@
-import { CHANGE_PS } from '../reducers/Sony';
+import { createAction } from '@reduxjs/toolkit';
 
-export const changeSonyToPSVITA = (product: string) => ({
-  type: CHANGE_PS,
-  payload: product,
-});
+const CHANGE_PS5 = 'CHANGE_PS5';
+const CHANGE_PSVITA = 'CHANGE_PSVITA';
 
-export const changeSonyToPS5 = (product: string) => ({
-  type: CHANGE_PS,
-  payload: product,
-});
+export const changeSonyToPSVITA = createAction<string>(CHANGE_PS5);
+export const changeSonyToPS5 = createAction<string>(CHANGE_PSVITA);

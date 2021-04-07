@@ -3,6 +3,8 @@ import { useTranslation, Trans } from 'react-i18next';
 
 import Wrapper from './test.styled';
 
+import Table from './module/table';
+
 interface Iprops {
   text: String;
 }
@@ -27,6 +29,8 @@ const Test: React.FC<Iprops> = (props: Iprops) => {
       <Trans i18nKey="title" />
       <div>{translate('description.part1')}</div>
       <div>{translate('description.part2')}</div>
+
+      <Table />
     </Wrapper>
   );
 };

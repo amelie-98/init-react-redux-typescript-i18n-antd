@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Modal } from 'antd';
+// import { Modal } from 'antd';
 
 export default async (method: any, url: string, data: any) => {
   try {
@@ -11,12 +11,10 @@ export default async (method: any, url: string, data: any) => {
 
     return response.data;
   } catch (error) {
-    Modal.warning({
-      title: 'title',
-      content: error.message,
-      // className: `${e.message === UNAUTHORIZED ? 'color-icon-warning-yellow' : ''
-      //   } business-error-message`,
-    });
+    // Modal.warning({
+    //   title: 'title',
+    //   content: error.message,
+    // });
 
     return null;
   }

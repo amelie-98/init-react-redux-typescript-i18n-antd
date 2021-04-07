@@ -1,4 +1,6 @@
-export const CHANGE_PS = 'CHANGE_PS';
+import { createReducer } from '@reduxjs/toolkit';
+// eslint-disable-next-line import/no-cycle
+import { changeSonyToPSVITA, changeSonyToPS5 } from '../actions';
 
 const initialState = 'PS4';
 
@@ -7,12 +9,9 @@ export interface BaseAction {
   payload: string;
 }
 
-export default (state = initialState, action: BaseAction) => {
-  switch (action.type) {
-    case CHANGE_PS:
-      return action.payload;
-
-    default:
-      return state;
-  }
-};
+export default createReducer(initialState, (builder: any) => builder
+  .addCase(changeSonyToPSVITA, (_: any, action: any) => action.payload) // if initialState not object
+  .addCase(changeSonyToPS5, (state: any, action: any) => {
+    // eslint-disable-next-line no-param-reassign
+    state.name = action.payload; // if initialState not object
+  }));
