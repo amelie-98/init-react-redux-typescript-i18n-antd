@@ -9,6 +9,7 @@ import { StateTypes } from './reducers';
 import { changeSonyToPSVITA, changeSonyToPS5 } from './actions';
 import ROUTES, { RenderRoutes } from './components/Routes';
 import service from './services/helper';
+import GridAntd from './components/module/gridantd';
 
 export default () => {
   const { sony } = useSelector((state: StateTypes) => state, shallowEqual);
@@ -56,40 +57,43 @@ export default () => {
 
   return (
     <div className="App">
-      <Test text="test" />
-      <h1>{sony}</h1>
+      <div style={{ textAlign: 'center' }}>
+        <Test text="test" />
+        <h1>{sony}</h1>
 
-      <button onClick={() => testUseDispatchPSVITA()} type="button">
-        Test useDispatch PS VITA
-      </button>
+        <button onClick={() => testUseDispatchPSVITA()} type="button">
+          Test useDispatch PS VITA
+        </button>
 
-      <button onClick={() => testUseDispatchPS5()} type="button">
-        Test useDispatch PS5
-      </button>
+        <button onClick={() => testUseDispatchPS5()} type="button">
+          Test useDispatch PS5
+        </button>
 
-      <h1>{REACT_APP_TEST}</h1>
-      <h1>{REACT_APP_TITLE}</h1>
-      <h3>{REACT_APP_DESCRIPTION}</h3>
+        <h1>{REACT_APP_TEST}</h1>
+        <h1>{REACT_APP_TITLE}</h1>
+        <h3>{REACT_APP_DESCRIPTION}</h3>
 
-      {NODE_ENV === 'development' ? REACT_APP_DEV_MODE : REACT_APP_PRO_MODE}
+        {NODE_ENV === 'development' ? REACT_APP_DEV_MODE : REACT_APP_PRO_MODE}
 
-      <h1>Test Router</h1>
+        <h1>Test Router</h1>
 
-      <Link to="/">Root</Link>
+        <Link to="/">Root</Link>
 
-      <Link to="/page1">Page1</Link>
+        <Link to="/page1">Page1</Link>
 
-      <Link to="/page2">Page2</Link>
+        <Link to="/page2">Page2</Link>
 
-      <div onClick={() => history.push('/')}>Root</div>
+        <div onClick={() => history.push('/')}>Root</div>
 
-      <div onClick={() => history.push('/page1')}>Page1</div>
+        <div onClick={() => history.push('/page1')}>Page1</div>
 
-      <div onClick={() => history.push('/page2')}>Page2</div>
+        <div onClick={() => history.push('/page2')}>Page2</div>
 
-      <RenderRoutes routes={ROUTES} />
+        <RenderRoutes routes={ROUTES} />
 
-      <h1>Test Router</h1>
+        <h1>Test Router</h1>
+      </div>
+      <GridAntd />
     </div>
   );
 };
